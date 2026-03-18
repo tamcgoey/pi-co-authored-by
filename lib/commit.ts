@@ -11,6 +11,6 @@ export function isGitCommit(cmd: string): boolean {
 
 /** Build the rewritten command with Co-Authored-By and Generated-By trailers. */
 export function appendTrailers(cmd: string, modelName: string, piVersion: string): string {
-	const trailers = `Co-Authored-By: ${modelName} <noreply@pi.dev>\\nGenerated-By: pi ${piVersion}`;
+	const trailers = `Co-Authored-By: AI <noreply@pi.dev>\\nGenerated-By: pi ${piVersion} (${modelName})`;
 	return `${cmd.trimEnd()} -m "" -m $'${trailers}'`;
 }

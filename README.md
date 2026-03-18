@@ -1,25 +1,25 @@
 # pi-co-authored-by
 
-A [Pi](https://github.com/badlogic/pi) extension that automatically appends git trailers to commit messages when the agent runs `git commit`. Adds the model name and pi version so you always know which AI helped write the code.
+A [Pi](https://github.com/badlogic/pi) extension that automatically appends git trailers to commit messages when the agent runs `git commit`. Uses a fixed AI co-author identity and records both pi version + model in metadata.
 
 ## Features
 
-**Co-Authored-By trailer** — Credits the model that helped write the code:
+**Co-Authored-By trailer** — Uses a standardized AI identity for attribution:
 ```
-Co-Authored-By: Claude Sonnet 4 <noreply@pi.dev>
+Co-Authored-By: AI <noreply@pi.dev>
 ```
 
-**Generated-By trailer** — Records which version of Pi was used:
+**Generated-By trailer** — Records pi version and the actual provider/model used:
 ```
-Generated-By: pi 0.52.12
+Generated-By: pi 0.52.12 (openai-codex/gpt-5.3-codex)
 ```
 
 **Example commit:**
 ```
 fix: resolve null pointer
 
-Co-Authored-By: Claude Sonnet 4 <noreply@pi.dev>
-Generated-By: pi 0.52.12
+Co-Authored-By: AI <noreply@pi.dev>
+Generated-By: pi 0.52.12 (openai-codex/gpt-5.3-codex)
 ```
 
 ## Requirements
@@ -46,12 +46,12 @@ pi install git:github.com/bruno-garcia/pi-co-authored-by
 
 ## How it works
 
-The extension hooks into Pi's `tool_call` event. When it detects a `git commit -m` command, it appends two extra `-m` flags to create [git trailers](https://git-scm.com/docs/git-interpret-trailers) with the current model name and pi version.
+The extension hooks into Pi's `tool_call` event. When it detects a `git commit -m` command, it appends two extra `-m` flags to create [git trailers](https://git-scm.com/docs/git-interpret-trailers) with a standardized AI co-author plus pi version/model metadata.
 
 | What | Value |
 |------|-------|
-| `Co-Authored-By` | Model name (e.g., `Claude Sonnet 4`) |
-| `Generated-By` | Pi version (e.g., `pi 0.52.12`) |
+| `Co-Authored-By` | `AI <noreply@pi.dev>` |
+| `Generated-By` | Pi version + provider/model (e.g., `pi 0.52.12 (openai-codex/gpt-5.3-codex)`) |
 
 ## Development
 
