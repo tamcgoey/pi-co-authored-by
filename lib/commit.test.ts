@@ -67,7 +67,7 @@ describe("appendTrailers", () => {
 			"0.52.12",
 		);
 		expect(result).toBe(
-			`git commit -m "fix bug" -m "" -m $'Co-authored-by: AI <noreply@pi.dev>\\nGenerated-by: pi 0.52.12 (Claude Sonnet 4)'`,
+			`git commit -m "fix bug" -m "" -m $'Generated-by: pi 0.52.12 (Claude Sonnet 4)\\nCo-authored-by: AI <noreply@pi.dev>'`,
 		);
 	});
 
@@ -106,7 +106,7 @@ describe("appendTrailers", () => {
 			"1.0.0",
 		);
 		// The trailers should be in a single $'...' string with \\n separator
-		expect(result).toMatch(/-m \$'Co-authored-by:.*\\nGenerated-by:.*'/);
+		expect(result).toMatch(/-m \$'Generated-by:.*\\nCo-authored-by:.*'/);
 	});
 
 	it("handles model name with special characters", () => {

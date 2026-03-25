@@ -18,8 +18,8 @@ Generated-by: pi 0.52.12 (openai-codex/gpt-5.3-codex)
 ```
 fix: resolve null pointer
 
-Co-authored-by: AI <noreply@pi.dev>
 Generated-by: pi 0.52.12 (openai-codex/gpt-5.3-codex)
+Co-authored-by: AI <noreply@pi.dev>
 ```
 
 ## Requirements

@@ -9,8 +9,8 @@
  * Example commit message:
  *   fix: resolve null pointer
  *
- *   Co-authored-by: AI <noreply@pi.dev>
  *   Generated-by: pi 0.52.12 (openai-codex/gpt-5.3-codex)
+ *   Co-authored-by: AI <noreply@pi.dev>
  */
 
 import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
