@@ -67,7 +67,7 @@ describe("appendTrailers", () => {
 			"0.52.12",
 		);
 		expect(result).toBe(
-			`git commit -m "fix bug" -m "" -m $'Co-Authored-By: AI <noreply@pi.dev>\\nGenerated-By: pi 0.52.12 (Claude Sonnet 4)'`,
+			`git commit -m "fix bug" -m "" -m $'Co-authored-by: AI <noreply@pi.dev>\\nGenerated-by: pi 0.52.12 (Claude Sonnet 4)'`,
 		);
 	});
 
@@ -81,22 +81,22 @@ describe("appendTrailers", () => {
 		expect(result).not.toMatch(/\s{2,}-m ""/);
 	});
 
-	it("uses AI identity in Co-Authored-By", () => {
+	it("uses AI identity in Co-authored-by", () => {
 		const result = appendTrailers(
 			'git commit -m "msg"',
 			"Gemini 2.5 Pro",
 			"1.0.0",
 		);
-		expect(result).toContain("Co-Authored-By: AI <noreply@pi.dev>");
+		expect(result).toContain("Co-authored-by: AI <noreply@pi.dev>");
 	});
 
-	it("includes pi version and model name in Generated-By", () => {
+	it("includes pi version and model name in Generated-by", () => {
 		const result = appendTrailers(
 			'git commit -m "msg"',
 			"Some Model",
 			"1.2.3",
 		);
-		expect(result).toContain("Generated-By: pi 1.2.3 (Some Model)");
+		expect(result).toContain("Generated-by: pi 1.2.3 (Some Model)");
 	});
 
 	it("uses $'' quoting for the trailer block", () => {
@@ -106,7 +106,7 @@ describe("appendTrailers", () => {
 			"1.0.0",
 		);
 		// The trailers should be in a single $'...' string with \\n separator
-		expect(result).toMatch(/-m \$'Co-Authored-By:.*\\nGenerated-By:.*'/);
+		expect(result).toMatch(/-m \$'Co-authored-by:.*\\nGenerated-by:.*'/);
 	});
 
 	it("handles model name with special characters", () => {
@@ -115,6 +115,6 @@ describe("appendTrailers", () => {
 			"openai/gpt-4o",
 			"0.50.0",
 		);
-		expect(result).toContain("Generated-By: pi 0.50.0 (openai/gpt-4o)");
+		expect(result).toContain("Generated-by: pi 0.50.0 (openai/gpt-4o)");
 	});
 });

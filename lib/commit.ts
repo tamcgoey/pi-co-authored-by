@@ -9,8 +9,8 @@ export function isGitCommit(cmd: string): boolean {
 	return /\bgit\s+commit\b/.test(normalized) && /\s-[^\s]*m\b/.test(normalized);
 }
 
-/** Build the rewritten command with Co-Authored-By and Generated-By trailers. */
+/** Build the rewritten command with Co-authored-by and Generated-by trailers. */
 export function appendTrailers(cmd: string, modelName: string, piVersion: string): string {
-	const trailers = `Co-Authored-By: AI <noreply@pi.dev>\\nGenerated-By: pi ${piVersion} (${modelName})`;
+	const trailers = `Co-authored-by: AI <noreply@pi.dev>\\nGenerated-by: pi ${piVersion} (${modelName})`;
 	return `${cmd.trimEnd()} -m "" -m $'${trailers}'`;
 }

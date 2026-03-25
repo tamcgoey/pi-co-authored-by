@@ -4,22 +4,22 @@ A [Pi](https://github.com/badlogic/pi) extension that automatically appends git 
 
 ## Features
 
-**Co-Authored-By trailer** — Uses a standardized AI identity for attribution:
+**Co-authored-by trailer** — Uses a standardized AI identity for attribution:
 ```
-Co-Authored-By: AI <noreply@pi.dev>
+Co-authored-by: AI <noreply@pi.dev>
 ```
 
-**Generated-By trailer** — Records pi version and the actual provider/model used:
+**Generated-by trailer** — Records pi version and the actual provider/model used:
 ```
-Generated-By: pi 0.52.12 (openai-codex/gpt-5.3-codex)
+Generated-by: pi 0.52.12 (openai-codex/gpt-5.3-codex)
 ```
 
 **Example commit:**
 ```
 fix: resolve null pointer
 
-Co-Authored-By: AI <noreply@pi.dev>
-Generated-By: pi 0.52.12 (openai-codex/gpt-5.3-codex)
+Co-authored-by: AI <noreply@pi.dev>
+Generated-by: pi 0.52.12 (openai-codex/gpt-5.3-codex)
 ```
 
 ## Requirements
@@ -50,8 +50,8 @@ The extension hooks into Pi's `tool_call` event. When it detects a `git commit -
 
 | What | Value |
 |------|-------|
-| `Co-Authored-By` | `AI <noreply@pi.dev>` |
-| `Generated-By` | Pi version + provider/model (e.g., `pi 0.52.12 (openai-codex/gpt-5.3-codex)`) |
+| `Co-authored-by` | `AI <noreply@pi.dev>` |
+| `Generated-by` | Pi version + provider/model (e.g., `pi 0.52.12 (openai-codex/gpt-5.3-codex)`) |
 
 ## Development
 

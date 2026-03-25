@@ -1,7 +1,7 @@
 {
   "name": "pi-co-authored-by",
   "version": "0.1.1",
-  "description": "A Pi extension that appends standardized AI attribution plus Generated-By pi version/model git trailers",
+  "description": "A Pi extension that appends standardized AI attribution plus Generated-by pi version/model git trailers",
   "author": "Bruno Garcia",
   "license": "MIT",
   "homepage": "https://github.com/bruno-garcia/pi-co-authored-by#readme",
